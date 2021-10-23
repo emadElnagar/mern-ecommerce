@@ -1,0 +1,36 @@
+{
+  "name": "tienda",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "mern ecommerce app",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon --watch backend exec node experimental-modules backend/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/emadElnagar/mern-ecommerce.git"
+  },
+  "keywords": [
+    "react",
+    "redux",
+    "express",
+    "mongoose",
+    "node",
+    "mern",
+    "mern-stack",
+    "mern-ecommerce"
+  ],
+  "author": "Emad Elnagar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/emadElnagar/mern-ecommerce/issues"
+  },
+  "homepage": "https://github.com/emadElnagar/mern-ecommerce#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.14"
+  }
+}
