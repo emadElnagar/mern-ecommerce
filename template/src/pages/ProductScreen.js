@@ -31,9 +31,13 @@ export default function Home(props) {
                 <div className="porduct-action">
                     <div className="card">
                         <ul>
-                            <li>price: {product.price}$</li>
                             <li>
-                                status: {product.countInStock >0
+                                <span>price: </span>
+                                <span>{product.price}$</span>
+                            </li>
+                            <li>
+                                <span>status: </span>
+                                {product.countInStock > 0
                                 ?(<span className="success">in stock</span>)
                                 :(<span className="error">unavailable</span>)}
                             </li>

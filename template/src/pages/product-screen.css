@@ -21,6 +21,10 @@ ul li {
     padding: 15px 10px;
     background: #f4f4f4;
 }
+.card li {
+    display: flex;
+    justify-content: space-between;
+}
 .card .success {
     color: #080;
 }
