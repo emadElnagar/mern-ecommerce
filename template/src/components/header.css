@@ -41,6 +41,6 @@
 	margin: 0 10px;
 	text-transform: capitalize;
 }
-.cart .cart-num {
-	font-size: 18px;
+.cart {
+	margin-right: 20px;
 }
