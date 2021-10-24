@@ -4,10 +4,12 @@ import './header.css';
 import SearchIcon from '@mui/icons-material/Search';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import Badge from '@mui/material/Badge';
+import { useSelector } from 'react-redux';
 
 
 function Header() {
-	let num = 0;
+	const cart = useSelector(state => state.cart);
+	const { cartItems } = cart;
 	return (
 		<div className="header">
 			<div className="logo"><Link to="/">tienda</Link></div>
@@ -19,8 +21,8 @@ function Header() {
 				<span className="header-nav">signin</span>
 				<span className="header-nav">orders</span>
 				<span className="header-nav cart">
-					<Link to="/cart/:id?">
-						<Badge badgeContent={num} color="secondary">
+					<Link to="/cart">
+						<Badge badgeContent={cartItems.length} color="secondary">
 							<ShoppingCartIcon className="cart-icon" color="light" />
 						</Badge>
 					</Link>

@@ -1,0 +1,58 @@
+.cart-table {
+  width: 100%;
+}
+.cart-table h1 {
+  text-align: center;
+}
+.cart-table a {
+  color: #000;
+}
+.cart-table table {
+  margin-top: 30px;
+  border: 1px solid #131921;
+  width: 100%;
+}
+.cart-table img {
+  max-width: 200px;
+}
+.cart-table th,
+.cart-table td {
+  border-bottom: 1px solid #131921;
+  border-left: 1px solid #131921;
+  text-align: center;
+}
+.cart-table th:first-child,
+.cart-table td:first-child {
+  border-left: none;
+}
+.cart-table th {
+  padding: 20px 0;
+}
+.cart-table .delete-button {
+  cursor: pointer;
+  background: none;
+  border: none;
+  transition: all .3s ease;
+}
+.cart-table .delete-button:hover {
+  color: #cd9042;
+}
+.checkout-card {
+  width: 100%;
+  border: 1px solid #131921;
+  padding: 20px;
+  margin-top: 20px;
+}
+.checkout-card button {
+  width: 100%;
+  margin-top: 10px;
+  padding: 10px 0;
+  background: #cd9042;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  margin-top: 20px;
+}
+.checkout-card button:focus {
+  outline: none;
+}

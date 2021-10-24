@@ -8,6 +8,9 @@
 	top: 0;
 	z-index: 100;
 }
+.header a {
+	color: #fff;
+}
 .logo {
 	font-size: 28px;
 	text-transform: uppercase;
