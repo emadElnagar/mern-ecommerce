@@ -10,6 +10,7 @@ import { useSelector } from 'react-redux';
 function Header() {
 	const cart = useSelector(state => state.cart);
 	const { cartItems } = cart;
+	const cartTotal = cartItems.reduce((a, c) => a + c.qty, 0)
 	return (
 		<div className="header">
 			<div className="logo"><Link to="/">tienda</Link></div>
@@ -22,7 +23,7 @@ function Header() {
 				<span className="header-nav">orders</span>
 				<span className="header-nav cart">
 					<Link to="/cart">
-						<Badge badgeContent={cartItems.length} color="secondary">
+						<Badge badgeContent={cartTotal} color="secondary">
 							<ShoppingCartIcon className="cart-icon" color="light" />
 						</Badge>
 					</Link>

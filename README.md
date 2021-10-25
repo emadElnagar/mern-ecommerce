@@ -1,6 +1,6 @@
-# mern ecommerce
+# Mern Ecommerce
 ecommerce web app using mern
-## technologies used
+## Technologies Used
 * HTML5
 * CSS3
 * ReactJS

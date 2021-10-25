@@ -1,11 +1,26 @@
+.cart-container {
+  width: 100%;
+}
+h1 {
+  text-align: center;
+  text-transform: capitalize;
+}
+.error {
+  width: 100%;
+}
+.error a {
+  text-transform: capitalize;
+  background: #1597E5;
+  border: 1px solid #113CFC;
+  padding: 10px 25px;
+  color: #fff;
+  font-weight: bold;
+}
 .cart-table {
   width: 100%;
 }
-.cart-table h1 {
-  text-align: center;
-}
 .cart-table a {
-  color: #000;
+  color: #00f;
 }
 .cart-table table {
   margin-top: 30px;
@@ -27,6 +42,7 @@
 }
 .cart-table th {
   padding: 20px 0;
+  text-transform: capitalize;
 }
 .cart-table .delete-button {
   cursor: pointer;
@@ -37,11 +53,14 @@
 .cart-table .delete-button:hover {
   color: #cd9042;
 }
+.cart-table tfoot th {
+  border-bottom: none;
+}
 .checkout-card {
   width: 100%;
   border: 1px solid #131921;
   padding: 20px;
-  margin-top: 20px;
+  margin-top: 30px;
 }
 .checkout-card button {
   width: 100%;

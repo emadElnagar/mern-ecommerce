@@ -65,19 +65,19 @@ export default function Home(props) {
                       <li>
                         <span>quantity :</span>
                         <span>
-                        <FormControl>
-                          <Select
-                            value={qty}
-                            onChange={e => setQty(e.target.value)}
-                            displayEmpty
-                          >   
-                            {
-                              [...Array(product.countInStock).keys()].map((x) => (
-                                <MenuItem key={x + 1} value={x + 1}>{x + 1}</MenuItem>
-                              ))
-                            }
-                          </Select>
-                        </FormControl>
+                          <FormControl>
+                            <Select
+                              value={qty}
+                              onChange={e => setQty(e.target.value)}
+                              displayEmpty
+                            >   
+                              {
+                                [...Array(product.countInStock).keys()].map((x) => (
+                                  <MenuItem key={x + 1} value={x + 1}>{x + 1}</MenuItem>
+                                ))
+                              }
+                            </Select>
+                          </FormControl>
                         </span>
                       </li>
                     )
