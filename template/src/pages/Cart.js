@@ -25,7 +25,7 @@ export default function Cart(props) {
     props.history.push('/signin?redirect=shipping');
   }
   return (
-    <div className="row top">
+    <div className="row center">
       {
         cartItems.length === 0
           ? (
@@ -79,7 +79,11 @@ export default function Cart(props) {
                       <th colSpan="4">cart total price</th>
                       <th>{cartItems.reduce((a, c) => a + c.price * c.qty, 0)}$</th>
                       <th>
-                        <button className="delete-button" title="Remove all products">
+                        <button 
+                          onClick={ () => cartItems.map((item) => removeFromCartHandler(item.product)) }
+                          className="delete-button" 
+                          title="Remove all products"
+                        >
                           <DeleteIcon />
                         </button>
                       </th>

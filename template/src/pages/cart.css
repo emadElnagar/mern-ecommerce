@@ -10,8 +10,7 @@ h1 {
 }
 .error a {
   text-transform: capitalize;
-  background: #1597E5;
-  border: 1px solid #113CFC;
+  background: #1597E3;
   padding: 10px 25px;
   color: #fff;
   font-weight: bold;
@@ -57,10 +56,11 @@ h1 {
   border-bottom: none;
 }
 .checkout-card {
-  width: 100%;
+  max-width: 100%;
+  min-width: 480px;
   border: 1px solid #131921;
-  padding: 20px;
   margin-top: 30px;
+  padding: 20px;
 }
 .checkout-card button {
   width: 100%;

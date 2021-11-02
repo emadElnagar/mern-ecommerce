@@ -1,0 +1,33 @@
+.paper {
+  padding: 30px 20px;
+}
+.paper .form-head {
+  margin: 20px 0;
+  text-transform: uppercase;
+}
+.form-body {
+  margin-bottom: 20px;
+}
+.form-body button {
+  margin: 20px 0;
+}
+.form-body .pass-icon {
+  margin-bottom: 20px;
+}
+.form-body .remember-me {
+  margin-top: 20px;
+}
+.form-body a {
+  color: #00f;
+}
+.form-body button.submit {
+  width: 100%;
+  background: #cd9042;
+}
+.form-body .gender {
+  margin-top: 5px;
+}
+.form-body .name {
+  display: flex;
+  justify-content: space-between;
+}

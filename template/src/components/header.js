@@ -19,7 +19,9 @@ function Header() {
 				<SearchIcon className="search-icon" />
 			</div>
 			<div className="header-navs">
-				<span className="header-nav">signin</span>
+				<span className="header-nav">
+					<Link to="/signin">signin</Link>
+				</span>
 				<span className="header-nav">orders</span>
 				<span className="header-nav cart">
 					<Link to="/cart">
