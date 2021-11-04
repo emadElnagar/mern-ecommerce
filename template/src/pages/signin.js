@@ -39,7 +39,9 @@ export default function Signin() {
     event.preventDefault();
   };
 
+  // eslint-disable-next-line
   const [email, setEmail] = useState('');
+  // eslint-disable-next-line
   const [password, setPassword] = useState('');
 
   const submitHandler = (e) => {

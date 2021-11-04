@@ -1,7 +1,33 @@
+/*
+	IT'S JUST A DEMO FOR DATA TO TRY RUNNING APP
+	AND I WILL CHANGE IT TO BE IMPORTED AUTOMATICALLY FROM DATABASE
+*/
+
+import bcrypt from 'bcrypt';
+
 const data = {
+	users: [
+		{
+			firstName: "emad",
+			lastName: "elnagar",
+			email: "emad@gmail.com",
+			password: bcrypt.hashSync('br1234', 8),
+			phoneNumber: "",
+			gender: "male",
+			isAdmin: true,
+		},
+		{
+			firstName: "ahmed",
+			lastName: "adel",
+			email: "ahmed@gmail.com",
+			password: bcrypt.hashSync('fe1245', 8),
+			phoneNumber: "",
+			gender: "male",
+			isAdmin: false,
+		},
+	],
   products: [
 		{
-			id: '1',
 			name: 'men suit',
 			price: 120,
 			countInStock: 10,
@@ -13,7 +39,6 @@ const data = {
 			description: 'Good suit for your dates',
 		},
 		{
-			id: '2',
 			name: 'camera lens',
 			price: 90,
 			countInStock: 15,
@@ -25,7 +50,6 @@ const data = {
 			description: 'a very good lens to profitional photos',
 		},
 		{
-			id: '3',
 			name: 'blue suit',
 			price: 100,
 			countInStock: 22,
@@ -37,7 +61,6 @@ const data = {
 			description: 'Good suit for your dates',
 		},
 		{
-			id: '4',
 			name: 'iphone',
 			price: 710,
 			countInStock: 11,
@@ -49,7 +72,6 @@ const data = {
 			description: 'apple iphone for the best',
 		},
 		{
-			id: '5',
 			name: 'modern sallon',
 			price: 1880,
 			countInStock: 0,
