@@ -47,3 +47,25 @@
 .cart {
 	margin-right: 20px;
 }
+
+/* DROP DOWN */
+/* .dropdown {
+	display: inline-block;
+	position: relative;
+}
+.dropdown-content {
+	position: absolute;
+	display: none;
+	right: 0;
+	min-width: 5rem;
+	z-index: 1;
+	background: #131921;
+	margin: 0;
+	margin-top: 0.4rem;
+}
+.dropdown-content a {
+	text-align: center;
+}
+.dropdown:hover .dropdown-content {
+	display: block;
+} */

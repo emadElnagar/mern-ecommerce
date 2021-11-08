@@ -1,4 +1,5 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
+import {useDispatch, useSelector} from 'react-redux';
 import { Link } from 'react-router-dom';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
@@ -13,9 +14,10 @@ import InputAdornment from '@mui/material/InputAdornment';
 import FormControl from '@mui/material/FormControl';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
+import { signin } from '../actions/UserActions';
 import './form.css';
 
-export default function Signin() {
+export default function Signin(props) {
   const [values, setValues] = useState({
     amount: '',
     password: '',
@@ -39,14 +41,28 @@ export default function Signin() {
     event.preventDefault();
   };
 
-  // eslint-disable-next-line
   const [email, setEmail] = useState('');
-  // eslint-disable-next-line
   const [password, setPassword] = useState('');
+
+  const redirect = props.location.search 
+  ? props.location.search.split('=')[1] 
+  : '/';
+
+  const userSignIn = useSelector(state => state.userSignIn);
+	const { userInfo, loading, error } = userSignIn;
+  
+  const dispatch = useDispatch();
 
   const submitHandler = (e) => {
     e.preventDefault();
-  }
+    dispatch(signin(email, password));
+  };
+
+  useEffect(() => {
+    if (userInfo) {
+      props.history.push(redirect);
+    }
+  }, [props.history, redirect, userInfo]);
 
   return (
     <div className="row center">
@@ -56,6 +72,8 @@ export default function Signin() {
           maxWidth: '100%',
         }}
       >
+        {loading && <loadingBox></loadingBox>}
+        {error && <messageBox variant="error">{error}</messageBox> }
         <Paper elevation={20} className="paper">
           <Typography variant="h4" className="form-head">sign in</Typography>
           <Box component="form" onSubmit={submitHandler} >
@@ -63,7 +81,8 @@ export default function Signin() {
               <TextField 
                 fullWidth 
                 name="email" 
-                id="standard-basic" 
+                id="email"
+                type="email" 
                 label="Email" 
                 variant="standard" 
                 onChange={(e) => setEmail(e.target.value)} 
@@ -72,7 +91,7 @@ export default function Signin() {
               <FormControl 
                 fullWidth 
                 name="password" 
-                id="standard-basic" 
+                id="password" 
                 label="Password" 
                 variant="standard" 
                 onChange={(e) => setPassword(e.target.value)} 
@@ -80,7 +99,7 @@ export default function Signin() {
               >
                 <InputLabel htmlFor="standard-adornment-password">Password</InputLabel>
                 <Input
-                  id="standard-adornment-password"
+                  id="password"
                   type={values.showPassword ? 'text' : 'password'}
                   value={values.password}
                   onChange={handleChange('password')}
@@ -102,7 +121,7 @@ export default function Signin() {
               </FormGroup>
               <Button className="submit" type="submit" variant="contained">sign in</Button>
               <div>
-                Don't have an account? <Link to="/signup">SignUp</Link>
+                Don't have an account? <Link to={`/signup?redirect=${redirect}`}>SignUp</Link>
               </div>
             </div>
           </Box>
