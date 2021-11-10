@@ -21,7 +21,6 @@ userRouter.post('/signin', expressAsyncHandler(async(req, res) => {
         firstName: user.firstName,
         lastName: user.lastName,
         email: user.email,
-        phoneNumber: user.phoneNumber,
         isAdmin: user.isAdmin,
         token: generateToken(user),
       });
@@ -37,7 +36,6 @@ userRouter.post('/signup', expressAsyncHandler(async(req, res) => {
     lastName: req.body.lastName,
     email: req.body.email,
     password: bcrypt.hashSync(req.body.password, 8),
-    phoneNumber: req.body.phoneNumber,
   });
   const createdUser = await user.save();
   res.send({
@@ -45,7 +43,6 @@ userRouter.post('/signup', expressAsyncHandler(async(req, res) => {
     firstName: createdUser.firstName,
     lastName: createdUser.lastName,
     email: createdUser.email,
-    phoneNumber: createdUser.phoneNumber,
     isAdmin: createdUser.isAdmin,
     token: generateToken(createdUser),
   });

@@ -6,6 +6,8 @@ import ProductScreen from './pages/ProductScreen';
 import { BrowserRouter, Route } from 'react-router-dom';
 import Signin from './pages/signin';
 import Signup from './pages/signup';
+import Shipping from './pages/shipping';
+import Placeorder from './pages/placeorder';
 
 function App() {
   return (
@@ -19,6 +21,8 @@ function App() {
           <Route path="/products/:id" component={ProductScreen}></Route>
           <Route exact path="/signin" component={Signin}></Route>
           <Route exact path="/signup" component={Signup}></Route>
+          <Route exact path="/shipping" component={Shipping}></Route>
+          <Route exact path="/placeorder" component={Placeorder}></Route>
           <Route exact path="/" component={Home}></Route>
         </main>
       </div>

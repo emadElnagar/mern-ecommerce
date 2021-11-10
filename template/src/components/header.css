@@ -49,23 +49,26 @@
 }
 
 /* DROP DOWN */
-/* .dropdown {
+.dropdown {
 	display: inline-block;
 	position: relative;
 }
-.dropdown-content {
+.dropdown .dropdown-content {
 	position: absolute;
 	display: none;
-	right: 0;
 	min-width: 5rem;
 	z-index: 1;
 	background: #131921;
-	margin: 0;
-	margin-top: 0.4rem;
-}
-.dropdown-content a {
+	padding: 10px 0;
+	margin-right: -3rem;
 	text-align: center;
+}
+.dropdown .dropdown-content a {
+	padding: 0 20px;
 }
 .dropdown:hover .dropdown-content {
 	display: block;
-} */
+}
+.dropdown .dropdown-icon {
+	font-size: 12px;
+}

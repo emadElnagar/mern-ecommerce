@@ -1,0 +1,14 @@
+.shipping-steps {
+  margin-bottom: 30px;
+}
+.shipping-steps > div {
+  border-top: 0.3rem solid #c0c0c0;
+  color: #c0c0c0;
+  flex: 1;
+  padding: 1rem;
+  font-weight: bold;
+}
+.shipping-steps > div.active {
+  border-top: 0.3rem solid #cd9042;
+  color: #cd9042;
+}

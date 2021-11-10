@@ -4,7 +4,6 @@ import './header.css';
 import SearchIcon from '@mui/icons-material/Search';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import Badge from '@mui/material/Badge';
-import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import { useDispatch, useSelector } from 'react-redux';
 import { signout } from '../actions/UserActions';
 
@@ -32,10 +31,12 @@ function Header() {
 						userInfo
 						? (
 							<div className="dropdown">
-								<Link to="#">{userInfo.firstName}<ArrowDropDownIcon /></Link>
+								<Link to="#">
+									{userInfo.firstName} <span className="dropdown-icon">&#9660;</span>
+								</Link>
 								<ul className="dropdown-content">
 									<li>
-										<Link to="signout" onClick={signoutHandler}>sign out</Link>
+										<Link to="/" onClick={signoutHandler}>sign out</Link>
 									</li>
 								</ul>
 							</div>
