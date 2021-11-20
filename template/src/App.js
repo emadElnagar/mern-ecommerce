@@ -8,6 +8,7 @@ import Signin from './pages/signin';
 import Signup from './pages/signup';
 import Shipping from './pages/shipping';
 import Placeorder from './pages/placeorder';
+import OrderScreen from './pages/orderScreen';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route exact path="/signup" component={Signup}></Route>
           <Route exact path="/shipping" component={Shipping}></Route>
           <Route exact path="/placeorder" component={Placeorder}></Route>
+          <Route exact path="/order/:id" component={OrderScreen}></Route>
           <Route exact path="/" component={Home}></Route>
         </main>
       </div>
