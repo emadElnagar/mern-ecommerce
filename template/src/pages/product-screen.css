@@ -33,7 +33,7 @@ ul li {
 .card .success {
   color: #080;
 }
-.card .error {
+.card .unavailable {
   color: #f00;
 }
 .card button {

@@ -5,8 +5,8 @@ import CheckoutSteps from '../components/checkoutSteps';
 import { Typography } from '@mui/material';
 import Button from '@mui/material/Button';
 import { createOrder } from '../actions/OrderActions';
-import './placeorder.css';
 import { ORDER_CREATE_RESET } from '../constants/OrderConst';
+import './placeorder.css';
 
 export default function Placeorder(props) {
   const cart = useSelector((state) => state.cart);
@@ -79,7 +79,7 @@ export default function Placeorder(props) {
             {
               cart.cartItems.length === 0
               ? (
-                <Button variant="contained" disabled>add to cart</Button>
+                <Button variant="contained" disabled>place order</Button>
                 
               ) : (
                 <Button variant="contained" onClick={placeOrderHandler}>

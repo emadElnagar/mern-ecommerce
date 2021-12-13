@@ -32,6 +32,7 @@
 li {
   display: flex;
   justify-content: space-between;
+  margin-top: 10px;
 }
 li.order {
   align-items: center;
@@ -41,6 +42,9 @@ li.order {
 }
 img.order-img {
   max-width: 100px;
+}
+.order-summary-list {
+  margin-bottom: 10px;
 }
 @media (max-width:950px) {
   .order-info,

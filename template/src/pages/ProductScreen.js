@@ -58,7 +58,7 @@ export default function Home(props) {
                     <span>status :</span>
                     {product.countInStock > 0
                     ? (<span className="success">in stock</span>)
-                    : (<span className="error">unavailable</span>)}
+                    : (<span className="unavailable">unavailable</span>)}
                   </li>
                   {
                     product.countInStock > 0 && (

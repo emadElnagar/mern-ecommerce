@@ -23,7 +23,9 @@ mongoose.connect('mongodb://localhost/tiendaecommerce', (err) => {
 app.use('/api/users', userRouter);
 app.use('/api/products', productRouter);
 app.use('/api/orders', orderRouter);
-
+app.use('/api/payment/paypal', (req, res) =>{
+  res.send(process.env.PAYPAL_ID || 'sb');
+})
 app.get('/', (req, res) => {
   res.send('server is ready')
 });
