@@ -8,6 +8,7 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import MessageBox from '../components/messagebox';
+import LoadingBox from '../components/loadingbox';
 
 
 export default function Home(props) {
@@ -28,7 +29,7 @@ export default function Home(props) {
   return (
     <div>
       {loading? (
-        <loadingBox></loadingBox>
+        <LoadingBox></LoadingBox>
       ) : error? (
         <MessageBox variant="error">{error}</MessageBox>
       ) : (

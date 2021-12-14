@@ -3,6 +3,7 @@ import Product from '../components/product';
 import { useDispatch, useSelector } from 'react-redux';
 import { productsList } from '../actions/productActions';
 import MessageBox from '../components/messagebox';
+import LoadingBox from '../components/loadingbox';
 
 export default function Home() {
   const dispatch = useDispatch();
@@ -14,7 +15,7 @@ export default function Home() {
   return (
     <div>
       {loading? (
-          <loadingBox></loadingBox>
+          <LoadingBox></LoadingBox>
         ) : error? (
           <MessageBox variant="error">{error}</MessageBox>
         ) : (

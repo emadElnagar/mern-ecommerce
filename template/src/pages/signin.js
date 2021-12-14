@@ -17,6 +17,7 @@ import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import { signin } from '../actions/UserActions';
 import './form.css';
 import MessageBox from '../components/messagebox';
+import LoadingBox from '../components/loadingbox';
 
 export default function Signin(props) {
   const [values, setValues] = useState({
@@ -73,7 +74,7 @@ export default function Signin(props) {
           maxWidth: '100%',
         }}
       >
-        {loading && <loadingBox></loadingBox>}
+        {loading && <LoadingBox></LoadingBox>}
         {error && <MessageBox variant="error">{error}</MessageBox> }
         <Paper elevation={20} className="paper">
           <Typography variant="h4" className="form-head">sign in</Typography>

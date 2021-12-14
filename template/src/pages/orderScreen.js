@@ -8,6 +8,7 @@ import { PayPalButton } from 'react-paypal-button-v2';
 import MessageBox from '../components/messagebox';
 import './placeorder.css';
 import { ORDER_PAY_RESET } from '../constants/OrderConst';
+import LoadingBox from '../components/loadingbox';
 
 
 export default function OrderScreen(props) {
@@ -51,7 +52,7 @@ export default function OrderScreen(props) {
     dispatch(payOrder(order, paymentResult));
   }
   return loading 
-  ? <loadingBox></loadingBox>
+  ? <LoadingBox></LoadingBox>
   : error ? <MessageBox variant="danger">{error}</MessageBox>
   : (
     <div>
@@ -116,7 +117,7 @@ export default function OrderScreen(props) {
                 }
                 {
                   loadingPay && (
-                    <loadingBox></loadingBox>
+                    <LoadingBox></LoadingBox>
                   )
                 }
                 <PayPalButton 

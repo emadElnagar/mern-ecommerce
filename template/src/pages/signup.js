@@ -7,6 +7,7 @@ import './form.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { signup } from '../actions/UserActions';
 import MessageBox from '../components/messagebox';
+import LoadingBox from '../components/loadingbox';
 
 export default function Signup(props) {
 
@@ -48,7 +49,7 @@ export default function Signup(props) {
           maxWidth: '100%',
         }}
       >
-        {loading && <loadingBox></loadingBox>}
+        {loading && <LoadingBox></LoadingBox>}
         {error && <MessageBox variant="error">{error}</MessageBox> }
 
         <Paper elevation={20} className="paper">
