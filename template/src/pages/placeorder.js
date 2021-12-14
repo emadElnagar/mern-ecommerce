@@ -7,6 +7,7 @@ import Button from '@mui/material/Button';
 import { createOrder } from '../actions/OrderActions';
 import { ORDER_CREATE_RESET } from '../constants/OrderConst';
 import './placeorder.css';
+import MessageBox from '../components/messagebox';
 
 export default function Placeorder(props) {
   const cart = useSelector((state) => state.cart);
@@ -88,7 +89,7 @@ export default function Placeorder(props) {
               )
             }
             { loading && <loadignBox></loadignBox> }
-            { error && <messageBox></messageBox> }
+            { error && <MessageBox variant="error"></MessageBox> }
           </div>
           <ul className="order-items">
             <Typography variant="h6">your order</Typography>

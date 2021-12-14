@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import CheckoutSteps from '../components/checkoutSteps';
 import { Typography } from '@mui/material';
-import { detailsOrder } from '../actions/OrderActions';
+import { detailsOrder, payOrder } from '../actions/OrderActions';
 import Axios from 'axios';
 import { PayPalButton } from 'react-paypal-button-v2';
+import MessageBox from '../components/messagebox';
 import './placeorder.css';
+import { ORDER_PAY_RESET } from '../constants/OrderConst';
 
 
 export default function OrderScreen(props) {
@@ -14,6 +15,12 @@ export default function OrderScreen(props) {
   const [sdkReady, setSdkReady] = useState(false);
   const orderDetails = useSelector((state) => state.orderDetails);
   const { order, error, loading } = orderDetails;
+  const orderPay = useSelector((state) => state.orderpay);
+  const {
+    loading: loadingPay,
+    error: errorPay,
+    success: successPay,
+  } = orderPay;
   const dispatch = useDispatch();
   useEffect(() => {
     const addPayPalScript = async () => {
@@ -27,7 +34,8 @@ export default function OrderScreen(props) {
       }
       document.body.appendChild(script);
     }
-    if(!order) {
+    if(!order || successPay || (order && order._id !== orderId)) {
+      dispatch({ type: ORDER_PAY_RESET });
       dispatch(detailsOrder(orderId));
     } else {
       if(!order.isPaid) {
@@ -38,16 +46,15 @@ export default function OrderScreen(props) {
         }
       }
     }
-  }, [dispatch, order, orderId, sdkReady]);
-  const successPaymentHandler = () => {
-    // payment process
+  }, [dispatch, order, orderId, sdkReady, successPay]);
+  const successPaymentHandler = (paymentResult) => {
+    dispatch(payOrder(order, paymentResult));
   }
   return loading 
   ? <loadingBox></loadingBox>
-  : error ? <messageBox>{error}</messageBox>
+  : error ? <MessageBox variant="danger">{error}</MessageBox>
   : (
     <div>
-      <CheckoutSteps step1 step2 step3></CheckoutSteps>
       <div className="row top">
         <div className="order">
           <ul className="order-info">
@@ -71,10 +78,16 @@ export default function OrderScreen(props) {
               <strong>your phone: </strong>
               { order.shippingInfo.phoneNumber }
             </li>
-            {order.isDelivered 
-            ? <messageBox>delivered at {order.deliveredAt}</messageBox>
-            : <messageBox>didn't delivered yet</messageBox>
-          }
+            {
+              order.isPaid
+              ? <MessageBox variant="success">paid at {order.paidAt}</MessageBox>
+              : <MessageBox variant="danger">didn't paid</MessageBox>
+            }
+            {
+              order.isDelivered 
+              ? <MessageBox variant="success">delivered at {order.deliveredAt}</MessageBox>
+              : <MessageBox variant="danger">didn't delivered yet</MessageBox>
+            }
           </ul>
           
           <div className="order-summary">
@@ -95,10 +108,22 @@ export default function OrderScreen(props) {
             </ul>
             {
               !order.isPaid && (
+                <>
+                {
+                  errorPay && (
+                    <MessageBox variant="danger">{errorPay}</MessageBox>
+                  )
+                }
+                {
+                  loadingPay && (
+                    <loadingBox></loadingBox>
+                  )
+                }
                 <PayPalButton 
                   amount={order.totalPrice} 
                   onSuccess={successPaymentHandler} 
                 ></PayPalButton>
+                </>
               )
             }
           </div>

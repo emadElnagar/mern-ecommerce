@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import Product from '../components/product';
 import { useDispatch, useSelector } from 'react-redux';
 import { productsList } from '../actions/productActions';
+import MessageBox from '../components/messagebox';
 
 export default function Home() {
   const dispatch = useDispatch();
@@ -15,7 +16,7 @@ export default function Home() {
       {loading? (
           <loadingBox></loadingBox>
         ) : error? (
-          <messageBox variant="error">{error}</messageBox>
+          <MessageBox variant="error">{error}</MessageBox>
         ) : (
           <div className="products">
             {products.map((product) => (

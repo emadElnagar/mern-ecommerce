@@ -6,6 +6,7 @@ import { Button, Grid, Paper, Typography } from '@mui/material';
 import './form.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { signup } from '../actions/UserActions';
+import MessageBox from '../components/messagebox';
 
 export default function Signup(props) {
 
@@ -48,7 +49,7 @@ export default function Signup(props) {
         }}
       >
         {loading && <loadingBox></loadingBox>}
-        {error && <messageBox variant="error">{error}</messageBox> }
+        {error && <MessageBox variant="error">{error}</MessageBox> }
 
         <Paper elevation={20} className="paper">
           <Typography variant="h4" className="form-head">sign up</Typography>

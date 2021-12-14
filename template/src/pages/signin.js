@@ -16,6 +16,7 @@ import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import { signin } from '../actions/UserActions';
 import './form.css';
+import MessageBox from '../components/messagebox';
 
 export default function Signin(props) {
   const [values, setValues] = useState({
@@ -73,7 +74,7 @@ export default function Signin(props) {
         }}
       >
         {loading && <loadingBox></loadingBox>}
-        {error && <messageBox variant="error">{error}</messageBox> }
+        {error && <MessageBox variant="error">{error}</MessageBox> }
         <Paper elevation={20} className="paper">
           <Typography variant="h4" className="form-head">sign in</Typography>
           <Box component="form" onSubmit={submitHandler} >
