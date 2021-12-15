@@ -4,6 +4,12 @@ import Order from '../models/order.js';
 import { isAuth } from '../utils.js';
 
 const orderRouter = express.Router();
+
+orderRouter.get('/history', isAuth, expressAsyncHandler(async(req, res) => {
+  const orders = await Order.find({ user: req.user._id });
+  res.send(orders);
+}))
+
 orderRouter.post('/', isAuth, expressAsyncHandler(async(req, res) => {
   if (req.body.orderItems.length === 0) {
     res.status(400).send({message: 'Your shopping cart is empty yet'})
@@ -48,5 +54,7 @@ orderRouter.put('/id/pay', isAuth, expressAsyncHandler(async(req, res) => {
     res.status(404).send({message: 'Order Not Found'});
   }
 }))
+
+
 
 export default orderRouter;

@@ -9,6 +9,7 @@ import Signup from './pages/signup';
 import Shipping from './pages/shipping';
 import Placeorder from './pages/placeorder';
 import OrderScreen from './pages/orderScreen';
+import OrderHistory from './pages/orderHistory';
 
 function App() {
   return (
@@ -20,11 +21,12 @@ function App() {
         <main>
           <Route path="/cart/:id?" component={Cart}></Route>
           <Route path="/products/:id" component={ProductScreen}></Route>
-          <Route exact path="/signin" component={Signin}></Route>
-          <Route exact path="/signup" component={Signup}></Route>
-          <Route exact path="/shipping" component={Shipping}></Route>
-          <Route exact path="/placeorder" component={Placeorder}></Route>
-          <Route exact path="/order/:id" component={OrderScreen}></Route>
+          <Route path="/signin" component={Signin}></Route>
+          <Route path="/signup" component={Signup}></Route>
+          <Route path="/shipping" component={Shipping}></Route>
+          <Route path="/placeorder" component={Placeorder}></Route>
+          <Route path="/order/:id" component={OrderScreen}></Route>
+          <Route path="/orderhistory" component={OrderHistory}></Route>
           <Route exact path="/" component={Home}></Route>
         </main>
       </div>

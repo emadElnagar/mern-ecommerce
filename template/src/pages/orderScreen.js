@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
 import { Typography } from '@mui/material';
 import { detailsOrder, payOrder } from '../actions/OrderActions';
 import Axios from 'axios';
@@ -64,10 +63,6 @@ export default function OrderScreen(props) {
               { order.shippingInfo.firstName } { order.shippingInfo.lastName }
             </li>
             <li>
-              <strong>your address: </strong>
-              { order.shippingInfo.address }
-            </li>
-            <li>
               <strong>your city: </strong>
               { order.shippingInfo.city }
             </li>
@@ -128,24 +123,6 @@ export default function OrderScreen(props) {
               )
             }
           </div>
-          <ul className="order-items">
-            <Typography variant="h6">your order</Typography>
-            {
-              order.orderItems.map((item) => (
-                <li className="order">
-                  <li><img className="order-img" src={item.image} alt={item.name} /></li>
-                  <li>
-                    <Link to={`/products/${item.product}`}>
-                      {item.name}
-                    </Link>
-                  </li>
-                  <li>
-                    price : {item.price} x {item.qty} = {item.price * item.qty} $
-                  </li>
-                </li>
-              ))
-            }
-          </ul>
         </div>
       </div>
     </div>

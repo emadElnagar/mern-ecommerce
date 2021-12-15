@@ -45,7 +45,16 @@ function Header() {
 						)
 					}
 				</span>
-				<span className="header-nav">orders</span>
+				<span className="header-nav">
+					{
+						userInfo
+						? (
+							<Link to="/orderhistory">orders</Link>
+						) : (
+							<Link to="/signup">signup</Link>
+						)
+					}
+				</span>
 				<span className="header-nav cart">
 					<Link to="/cart">
 						<Badge badgeContent={cartTotal} color="secondary">

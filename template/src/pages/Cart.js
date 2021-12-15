@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addToCart, removeFromCart } from '../actions/CartActions';
 import DeleteIcon from '@mui/icons-material/Delete';
 import Button from '@mui/material/Button';
-import './cart.css';
+import './table.css';
 
 export default function Cart(props) {
   const productId = props.match.params.id;
@@ -34,8 +34,8 @@ export default function Cart(props) {
               <Link to="/">go shopping</Link>
             </div>
           ) : (
-            <div className="cart-container">
-              <div className="cart-table">
+            <div className="table-container">
+              <div className="table">
                 <h1>your shopping cart</h1>
                 <table>
                   <thead>
