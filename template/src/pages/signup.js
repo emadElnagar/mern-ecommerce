@@ -30,6 +30,10 @@ export default function Signup(props) {
     e.preventDefault();
     if(password !== confirmPassword) {
       alert('password and confirm password are not match')
+    } else if(password.length < 6) {
+      alert('password length must be at least 6 characters')
+    } else if(firstName.length < 3 || firstName.length > 20 || lastName.length < 3 || lastName.length > 20){
+      alert('name must be between 3 and 20 characters')
     } else {
       dispatch(signup(firstName, lastName, email, password, confirmPassword));
     }
