@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { orderHistory } from '../actions/OrderActions';
@@ -51,7 +52,7 @@ export default function OrderHistory(props) {
                 </tbody>
                 <tfoot>
                   <td colSpan="5">
-                    <button>clear history</button>
+                    <Link to={`/`}>continue shopping</Link>
                   </td>
                 </tfoot>
               </table>

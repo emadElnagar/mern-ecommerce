@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { signup } from '../actions/UserActions';
 import MessageBox from '../components/messagebox';
 import LoadingBox from '../components/loadingbox';
+import Swal from 'sweetalert2';
 
 export default function Signup(props) {
 
@@ -29,11 +30,26 @@ export default function Signup(props) {
   const submitHandler = (e) => {
     e.preventDefault();
     if(password !== confirmPassword) {
-      alert('password and confirm password are not match')
+      Swal.fire({
+        title: 'Error!',
+        text: 'password and confirm password are not match',
+        icon: 'error',
+        confirmButtonText: 'OK'
+      });
     } else if(password.length < 6) {
-      alert('password length must be at least 6 characters')
+      Swal.fire({
+        title: 'Error!',
+        text: 'password must be at least 6 characters',
+        icon: 'error',
+        confirmButtonText: 'OK'
+      });
     } else if(firstName.length < 3 || firstName.length > 20 || lastName.length < 3 || lastName.length > 20){
-      alert('name must be between 3 and 20 characters')
+      Swal.fire({
+        title: 'Error!',
+        text: 'name must be between 3 and 20 characters',
+        icon: 'error',
+        confirmButtonText: 'OK'
+      });
     } else {
       dispatch(signup(firstName, lastName, email, password, confirmPassword));
     }
