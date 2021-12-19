@@ -29,14 +29,7 @@ export default function Signup(props) {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    if(password !== confirmPassword) {
-      Swal.fire({
-        title: 'Error!',
-        text: 'password and confirm password are not match',
-        icon: 'error',
-        confirmButtonText: 'OK'
-      });
-    } else if(password.length < 6) {
+    if(password.length < 6) {
       Swal.fire({
         title: 'Error!',
         text: 'password must be at least 6 characters',
@@ -47,6 +40,13 @@ export default function Signup(props) {
       Swal.fire({
         title: 'Error!',
         text: 'name must be between 3 and 20 characters',
+        icon: 'error',
+        confirmButtonText: 'OK'
+      });
+    } else if(password !== confirmPassword) {
+      Swal.fire({
+        title: 'Error!',
+        text: 'password and confirm password are not match',
         icon: 'error',
         confirmButtonText: 'OK'
       });
