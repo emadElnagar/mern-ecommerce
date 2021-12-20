@@ -10,6 +10,7 @@ import Shipping from './pages/shipping';
 import Placeorder from './pages/placeorder';
 import OrderScreen from './pages/orderScreen';
 import OrderHistory from './pages/orderHistory';
+import ProfileScreen from './pages/userProfile';
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
           <Route path="/placeorder" component={Placeorder}></Route>
           <Route path="/order/:id" component={OrderScreen}></Route>
           <Route path="/orderhistory" component={OrderHistory}></Route>
+          <Route path="/profile" component={ProfileScreen}></Route>
           <Route exact path="/" component={Home}></Route>
         </main>
       </div>
