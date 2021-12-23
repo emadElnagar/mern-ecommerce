@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import './header.css';
 import SearchIcon from '@mui/icons-material/Search';
@@ -26,35 +26,43 @@ function Header() {
 				<SearchIcon className="search-icon" />
 			</div>
 			<div className="header-navs">
-				<span className="header-nav">
-					{
-						userInfo
-						? (
-							<div className="dropdown">
-								<Link to="#">
-									{userInfo.firstName} <span className="dropdown-icon">&#9660;</span>
-								</Link>
-								<ul className="dropdown-content">
-									<li>
-										<Link to="/" onClick={signoutHandler}>sign out</Link>
-									</li>
-								</ul>
-							</div>
-						) : (
-							<Link to="/signin">signin</Link>
-						)
-					}
-				</span>
-				<span className="header-nav">
-					{
-						userInfo
-						? (
-							<Link to="/orderhistory">orders</Link>
-						) : (
-							<Link to="/signup">signup</Link>
-						)
-					}
-				</span>
+				{
+					userInfo
+					?
+					(
+						<Fragment>
+							<span className="header-nav">
+								<div className="dropdown">
+									<Link to="#">
+										{userInfo.firstName} <span className="dropdown-icon">&#9660;</span>
+									</Link>
+									<ul className="dropdown-content">
+										<li>
+											<Link to="/profile">profile</Link>
+										</li>
+										<li>
+											<Link to="/" onClick={signoutHandler}>sign out</Link>
+										</li>
+									</ul>
+								</div>
+							</span>
+							<span className="header-nav">
+								<Link to="/orderhistory">orders</Link>
+							</span>
+						</Fragment>
+					)
+					:
+					(
+						<Fragment>
+							<span className="header-nav">
+								<Link to="/signin">signin</Link>
+							</span>
+							<span className="header-nav">
+								<Link to="/signup">signup</Link>
+							</span>
+						</Fragment>
+					)
+				}
 				<span className="header-nav cart">
 					<Link to="/cart">
 						<Badge badgeContent={cartTotal} color="secondary">
