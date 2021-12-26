@@ -31,7 +31,7 @@ export default function Cart(props) {
           ? (
             <div className="error">
               <h1>your cart is empty yet</h1>
-              <Link to="/">go shopping</Link>
+              <Link to="/">continue shopping</Link>
             </div>
           ) : (
             <div className="table-container">

@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { orderHistory } from '../actions/OrderActions';
 import LoadingBox from '../components/loadingbox';
 import MessageBox from '../components/messagebox';
+import { Typography } from '@mui/material';
 
 export default function OrderHistory(props) {
   const orderList = useSelector(state => state.orderList);
@@ -14,14 +15,15 @@ export default function OrderHistory(props) {
   }, [dispatch])
   return (
     <div>
-      <h1>order history</h1>
       {
         loading
         ? <LoadingBox></LoadingBox>
         : error
         ? <MessageBox>{error}</MessageBox>
         : (
+          orders &&
           <div className="table-container">
+            <Typography variant="h3" className="text-center">order history</Typography>
             <div className="table">
               <table>
                 <thead>
@@ -43,6 +45,7 @@ export default function OrderHistory(props) {
                         <td>{order.isDelivered? order.deliveredAt.substring(0, 10): 'Not delivered'}</td>
                         <td>
                           <button
+                            className="dt-btn"
                             onClick={() => {props.history.push(`/order/${order._id}`)}}
                           >details</button>
                         </td>

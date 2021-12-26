@@ -32,26 +32,36 @@ main {
   align-items: center;
   padding: 0 30px;
 }
+
+.text-center {
+  text-align: center;
+}
+
 .row.center {
   justify-content: center;
 }
+
 .row.top {
   align-items: flex-start;
 }
+
 .alert {
   border: 1px solid currentColor;
   padding: 6px;
   text-align: center;
   margin: 10px 0;
 }
+
 .alert-info {
   color: #2020a0;
   background-color: #e0e0ff;
 }
+
 .alert-danger {
   color: #a02020;
   background-color: #ffe0e0;
 }
+
 .alert-success {
   color: #20a020;
   background-color: #eeffe0;

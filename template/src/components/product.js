@@ -9,14 +9,12 @@ function Product(props) {
 		<div key={product._id} className="product">
 			<Link to={`/products/${product._id}`}>
 				<img className="product-img" src={product.image} alt={product.name} />
-			</Link>
-			<div className="product-body">
-				<Link to={`/products/${product._id}`}>
+				<div className="product-body">
 					<h2>{product.name}</h2>
-				</Link>
-				<Rating rating={product.rating} reviesNum={product.reviesNum}></Rating>
-				<div className="price">{product.price}$</div>
-			</div>
+					<Rating rating={product.rating} reviesNum={product.reviesNum}></Rating>
+					<div className="price">{product.price}$</div>
+				</div>
+			</Link>
 		</div>
 	);
 }

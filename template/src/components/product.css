@@ -1,8 +1,13 @@
 .product {
-	background: #f4f4f4;
+	box-shadow: inset 0 -3em 3em rgba(0,0,0,0.1),
+	0 0  0 2px rgba(255, 255, 255, 0.212),
+	0.3em 0.3em 1em rgba(0,0,0,0.3);
 }
 .product h2 {
 	text-transform: capitalize;
+}
+.product a {
+	color: #000;
 }
 .product-body {
 	padding: 20px;

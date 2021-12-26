@@ -35,29 +35,34 @@ export default function ProfileScreen() {
         title: 'Error!',
         text: 'password must be at least 6 characters',
         icon: 'error',
-        confirmButtonText: 'OK'
+        confirmButtonText: 'OK', 
+        confirmButtonColor: '#cd9042',
       });
     } else if(firstName.length < 3 || firstName.length > 20 || lastName.length < 3 || lastName.length > 20){
       Swal.fire({
         title: 'Error!',
         text: 'name must be between 3 and 20 characters',
         icon: 'error',
-        confirmButtonText: 'OK'
+        confirmButtonText: 'OK', 
+        confirmButtonColor: '#cd9042',
       });
     } else if(password !== confirmPassword) {
       Swal.fire({
         title: 'Error!',
         text: 'password and confirm password are not match',
         icon: 'error',
-        confirmButtonText: 'OK'
+        confirmButtonText: 'OK', 
+        confirmButtonColor: '#cd9042',
       });
     } else {
       dispatch(updateUserProfile({ userId: user._id, firstName, lastName, email, password }));
-      Swal.fire(
-        'successd',
-        'Your Informations Updated Successfully',
-        'success'
-      )
+      Swal.fire({
+        title: 'successd',
+        text: 'Your Informations Updated Successfully',
+        icon: 'success',
+        confirmButtonText: 'OK', 
+        confirmButtonColor: '#cd9042',
+      });
     }
   }
 
@@ -82,7 +87,7 @@ export default function ProfileScreen() {
                   type="text" 
                   id="firstName" 
                   variant="standard" 
-                  value={userInfo.firstName} 
+                  defaultValue={userInfo.firstName} 
                   onChange={(e) => setFirstName(e.target.value)} 
                 />
                 <TextField 
@@ -90,7 +95,7 @@ export default function ProfileScreen() {
                   type="text" 
                   id="lastName" 
                   variant="standard" 
-                  value={userInfo.lastName} 
+                  defaultValue={userInfo.lastName} 
                   onChange={(e) => setLastName(e.target.value)} 
                 />
               </div>
@@ -100,7 +105,7 @@ export default function ProfileScreen() {
                 type="email" 
                 id="email" 
                 variant="standard" 
-                value={userInfo.email} 
+                defaultValue={userInfo.email} 
                 onChange={(e) => setEmail(e.target.value)}  
               />
               <TextField 
@@ -122,7 +127,6 @@ export default function ProfileScreen() {
                 onChange={(e) => setconfirmPassword(e.target.value)}  
               />
               <Button className="submit" type="submit" variant="contained">update</Button>
-
             </div>
           </Box>
         </Paper>

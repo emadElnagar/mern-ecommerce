@@ -8,13 +8,17 @@ h1 {
 }
 .error {
   width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 .error a {
+  align-self: center;
   text-transform: capitalize;
-  background: #1597E3;
+  background: #cd9042;
   padding: 10px 25px;
   color: #fff;
-  font-weight: bold;
+  font: 22px bold;
+  margin-top: 20px;
 }
 .table {
   width: 100%;
@@ -35,6 +39,7 @@ h1 {
   border-bottom: 1px solid #131921;
   border-left: 1px solid #131921;
   text-align: center;
+  padding: 10px 0;
 }
 .table th:first-child,
 .table td:first-child {
@@ -76,4 +81,17 @@ h1 {
 }
 .checkout-card button:focus {
   outline: none;
+}
+.dt-btn {
+  background: #cd9042;
+  color: #fff;
+  padding: 5px 15px;
+  border: 1px solid #cd9042;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: .3s;
+}
+.dt-btn:hover {
+  background: #fff;
+  color: #cd9042;
 }
