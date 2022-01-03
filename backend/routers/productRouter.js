@@ -1,6 +1,7 @@
 import express from 'express';
 import expressAsyncHandler from 'express-async-handler';
 import Product from '../models/product.js';
+import { isAuth } from '../utils.js';
 
 const productRouter = express.Router();
 
@@ -22,5 +23,6 @@ productRouter.get('/:id', expressAsyncHandler(async(req, res) => {
     res.status(404).send({message: 'product not found'});
   }
 }));
+
 
 export default productRouter;
