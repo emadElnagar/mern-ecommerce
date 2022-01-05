@@ -28,3 +28,16 @@
   display: flex;
   justify-content: space-between;
 }
+.form1 textarea {
+  width: 100%;
+  resize: none;
+}
+.form1 select {
+  width: 100%;
+}
+.form1 button {
+  width: 100%;
+  background: #cd9042;
+  border: none;
+  padding: 10px 0;
+}

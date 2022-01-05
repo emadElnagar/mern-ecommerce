@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './product.css';
-import Rating from './rating';
+import ProductRating from './rating';
 
 function Product(props) {
 	const {product} =props;
@@ -11,7 +11,7 @@ function Product(props) {
 				<img className="product-img" src={product.image} alt={product.name} />
 				<div className="product-body">
 					<h2>{product.name}</h2>
-					<Rating rating={product.rating} reviesNum={product.reviesNum}></Rating>
+					<ProductRating rating={product.rating} reviesNum={product.reviesNum}></ProductRating>
 					<div className="price">{product.price}$</div>
 				</div>
 			</Link>
