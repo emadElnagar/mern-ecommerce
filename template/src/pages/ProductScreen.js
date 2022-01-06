@@ -11,6 +11,8 @@ import MessageBox from '../components/messagebox';
 import LoadingBox from '../components/loadingbox';
 import { Link } from 'react-router-dom';
 import { PRODUCT_REVIEW_CREATE_RESET } from '../constants/productConst';
+import Swal from 'sweetalert2';
+
 
 export default function Home(props) {
   const dispatch = useDispatch();
@@ -33,7 +35,11 @@ export default function Home(props) {
 
   useEffect(() => {
     if (successReviewCreate) {
-      window.alert('Review Submitted Successfully');
+      Swal.fire(
+        'DONE',
+        'Review Submitted Successfully',
+        'success'
+      );      
       setRating('');
       setComment('');
       dispatch({ type: PRODUCT_REVIEW_CREATE_RESET });
@@ -49,10 +55,14 @@ export default function Home(props) {
     e.preventDefault();
     if (comment && rating) {
       dispatch(
-        createReview(productId, { rating, comment, name: userInfo.name })
+        createReview(productId, { rating, comment, name: userInfo.firstname })
       );
     } else {
-      alert('Please enter comment and rating');
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Please enter comment and rating',
+      });      
     }
   };
   
