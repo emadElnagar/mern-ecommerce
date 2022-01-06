@@ -49,7 +49,7 @@ export default function Home(props) {
     e.preventDefault();
     if (comment && rating) {
       dispatch(
-        createReview(productId, { rating, comment, name: userInfo.firstName })
+        createReview(productId, { rating, comment, name: userInfo.name })
       );
     } else {
       alert('Please enter comment and rating');
@@ -127,7 +127,7 @@ export default function Home(props) {
               {
                 product.reviews &&
                 product.reviews.length === 0 && (
-                  <MessageBox>There is no review</MessageBox>
+                  <h4>There is no review</h4>
                 )
               }
               <ul>
