@@ -198,7 +198,7 @@ export default function Home(props) {
                     </form>
                   ) : (
                     <MessageBox>
-                      Please <Link to="/signin">Sign In</Link> to write a review
+                      Please <Link to={`/signin?next=/products/${productId}`}>Sign In</Link> to write a review
                     </MessageBox>
                   )}
                 </li>
