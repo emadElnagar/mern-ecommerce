@@ -66,3 +66,7 @@ main {
   color: #20a020;
   background-color: #eeffe0;
 }
+
+.main-headign {
+  text-transform: capitalize;
+}

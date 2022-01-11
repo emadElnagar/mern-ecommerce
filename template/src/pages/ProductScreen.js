@@ -12,6 +12,7 @@ import LoadingBox from '../components/loadingbox';
 import { Link } from 'react-router-dom';
 import { PRODUCT_REVIEW_CREATE_RESET } from '../constants/productConst';
 import Swal from 'sweetalert2';
+import { Typography } from '@mui/material';
 
 
 export default function Home(props) {
@@ -80,7 +81,7 @@ export default function Home(props) {
             </div>
             <div className="porduct-info">
               <ul>
-                <h1>{product.name}</h1>
+                <Typography className="main-headign text-center" variant='h3'>{product.name}</Typography>
                 <li>
                   <Rating rating={product.rating} reviesNum={product.reviesNum}></Rating>
                 </li>
@@ -133,11 +134,11 @@ export default function Home(props) {
               </div>
             </div>
             <div>
-              <h2>Reviews</h2>
+              <Typography variant="h5">Reviews</Typography>
               {
                 product.reviews &&
                 product.reviews.length === 0 && (
-                  <h4>There is no review</h4>
+                  <Typography variant="body1">There is no reviews yet</Typography>
                 )
               }
               <ul>
@@ -156,7 +157,7 @@ export default function Home(props) {
                   {userInfo ? (
                     <form className="form1" onSubmit={submitHandler}>
                       <div>
-                        <h2>Write a customer review</h2>
+                        <Typography variant='h5'>share us your own review</Typography>
                       </div>
                       <div>
                         <label htmlFor="rating">Rating</label>

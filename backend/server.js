@@ -26,8 +26,10 @@ app.use('/api/orders', orderRouter);
 app.use('/api/payment/paypal', (req, res) =>{
   res.send(process.env.PAYPAL_ID || 'sb');
 })
-app.get('/', (req, res) => {
-  res.send('server is ready')
+
+app.use(express.static('template/build'))
+app.get('*', (req, res) => {
+  res.sendFile(`${__dirname}/template/build/index.html`)
 });
 
 app.use((err, req, res, next) => {
